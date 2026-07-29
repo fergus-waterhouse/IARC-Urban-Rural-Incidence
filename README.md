@@ -8,7 +8,7 @@
 
 ## Overview
 
-This repository contains a Bayesian hierarchical modelling framework designed to estimate the Incidence Rate Ratio (IRR) for cancer incidence associated with a specific continuous covariate (e.g., the standardized percentage of the population living in urban areas within a registry catchment). 
+A Bayesian hierarchical model used to estimate the Incidence Rate Ratio (IRR) for cancer incidence associated with a specific continuous covariate (e.g., the standardized percentage of the population living in urban areas within a registry catchment). 
 
 The model relies on incidence data derived from the **Cancer Incidence in 5 Continents (CI5)** and **NORDCAN** datasets. By structuring the spatial hierarchy at the global, continental, regional, and country levels, the model leverages information across geographical tiers to produce robust, smoothed posterior estimates of covariate effects on cancer risk. 
 
@@ -19,7 +19,7 @@ The script (`run.R`) implements a spatial hierarchical model using Markov chain 
 ### Model Formulation
 
 **1. Likelihood**  
-The observed number of cancer cases for a given demographic and spatial strata $i$ ($y\_i$) is modeled using a Negative Binomial distribution to account for overdispersion relative to a Poisson baseline. The expected number of cases $\mu\_i$ is the product of the person-years at risk ($n\_i$) and the incidence rate ($\lambda\_i$):
+The observed number of cancer cases $i$ ($y\_i$) is modeled using a Negative Binomial distribution to account for overdispersion. The expected number of cases $\mu\_i$ is the product of the person-years at risk ($n\_i$) and the incidence rate ($\lambda\_i$):
 
 $$
 y_i \sim \text{Negative Binomial}\left(\mu_i, \mu_i + \frac{\mu_i^2}{r}\right) \quad \text{where} \quad \mu_i = n_i \cdot \lambda_i
@@ -119,7 +119,7 @@ The **`prepare_data.R`** script was used in the Urban-Rural study and synthesize
 
 ## Output Files
 
-Upon successful completion, the script generates a comprehensive suite of outputs within the specified `<out_dir>`:
+The script generates multiple outputs within the specified `<out_dir>`:
 
 1. **`meta_info.csv`**: A summary of the execution arguments and metadata.
 2. **`mcmc_out.rds`**: The raw, nested NIMBLE MCMC output object containing posterior samples for all tracked parameters.
