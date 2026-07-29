@@ -12,14 +12,6 @@ This repository contains a Bayesian hierarchical modelling framework designed to
 
 The model relies on incidence data derived from the **Cancer Incidence in 5 Continents (CI5)** and **NORDCAN** datasets. By structuring the spatial hierarchy at the global, continental, regional, and country levels, the model leverages information across geographical tiers to produce robust, smoothed posterior estimates of covariate effects on cancer risk. 
 
-GitHub has specific rules for rendering mathematical equations (via its implementation of MathJax). When the syntax isn't exactly what it expects, standard Markdown takes over, which causes the underscores (`_`) used for subscripts to be interpreted as **italics**. This is why subscripts like `\text{age}_i` were swallowed and turned into `\text{age}i`.
-
-To ensure math renders perfectly on GitHub, you need to follow two main rules:
-1. **Block equations** must have the `$$` delimiters on **their own separate lines** with blank lines above and below them.
-2. **Inline equations** must use `$` with **no spaces** directly inside the dollar signs (e.g., `$y_i$`, not `$ y_i $`).
-
-Here is the corrected `README.md` block with the GitHub-compliant math formatting. Simply copy and paste this:
-
 ## Methodology
 
 The script (`run.R`) implements a spatial hierarchical model using Markov chain Monte Carlo (MCMC) sampling via the `nimble` R package. 
@@ -27,37 +19,37 @@ The script (`run.R`) implements a spatial hierarchical model using Markov chain 
 ### Model Formulation
 
 **1. Likelihood**  
-The observed number of cancer cases for a given demographic and spatial strata $i$ ($y_i$) is modeled using a Negative Binomial distribution to account for overdispersion relative to a Poisson baseline. The expected number of cases $\mu_i$ is the product of the person-years at risk ($n_i$) and the incidence rate ($\lambda_i$):
+The observed number of cancer cases for a given demographic and spatial strata $i$ ($y\_i$) is modeled using a Negative Binomial distribution to account for overdispersion relative to a Poisson baseline. The expected number of cases $\mu\_i$ is the product of the person-years at risk ($n\_i$) and the incidence rate ($\lambda\_i$):
 
 $$
 y_i \sim \text{Negative Binomial}\left(\mu_i, \mu_i + \frac{\mu_i^2}{r}\right) \quad \text{where} \quad \mu_i = n_i \cdot \lambda_i
 $$
 
-*Here, $r$ represents the global overdispersion parameter.*
+Here, $r$ represents the global overdispersion parameter.
 
 **2. Linear Predictor & Thin Plate Splines**  
-The log-transformed incidence rate is defined by a country-specific continuous baseline function of age, an invariant sex effect ($\gamma$), and the country-specific covariate effect ($\delta_{s3}$):
+The log-transformed incidence rate is defined by a country-specific continuous baseline function of age, an invariant sex effect ($\gamma$), and the country-specific covariate effect ($\delta\_{s3}$):
 
 $$
 \ln(\lambda_i) = \beta_{0,s3} + \beta_{1,s3} \times \text{age}_i + \sum_{k=1}^K b_{s3,k} \cdot z_{i,k} + \gamma \times \text{sex}_i + \delta_{s3} \times \text{cov}_i
 $$
 
-Non-linear age effects are captured non-parametrically using thin-plate splines (parameterized by $K$ knots). The radial basis function matrix $z_{i,k} = |\text{age}_i - \kappa_k|^3$ calculates the absolute distance between the observed age and the knots $\kappa_k$. The spline weights $b_{s3,k}$ are assigned normally distributed priors centered at zero, allowing the variance parameter to act as a penalty term that balances curve smoothness with data fit.
+Non-linear age effects are captured non-parametrically using thin-plate splines (parameterized by $K$ knots). The radial basis function matrix $z\_{i,k} = \left| \text{age}\_i - \kappa\_k \right|^3$ calculates the absolute distance between the observed age and the knots $\kappa\_k$. The spline weights $b\_{s3,k}$ are assigned normally distributed priors centered at zero, allowing the variance parameter to act as a penalty term that balances curve smoothness with data fit.
 
 **3. Incidence Rate Ratio (IRR)**  
-The covariate (e.g., urbanization) is standardized prior to modeling. Consequently, the exponentiated parameter $\exp(\delta_{s3})$ represents the country-specific **Incidence Rate Ratio (IRR)**, signifying the relative change in the incidence rate for a one-standard-deviation increase in the covariate.
+The covariate (e.g., urbanization) is standardized prior to modeling. Consequently, the exponentiated parameter $\exp(\delta\_{s3})$ represents the country-specific **Incidence Rate Ratio (IRR)**, signifying the relative change in the incidence rate for a one-standard-deviation increase in the covariate.
 
 **4. Spatial Hierarchical Structure & Priors for the Covariate Effect ($\delta$)**  
 Under the assumption that geographic proximity implies similar incidence patterns, the model employs a nested spatial hierarchy. This is particularly important for the covariate effect ($\delta$), which is modeled recursively from the global level down to the country level:
 
-* **Global Baseline:** $\delta_0 \sim N(0, 1)$
-* **Tier 1 (Continent):** $\delta_{c} \sim N(\delta_0, \sigma_{\delta_c})$
-* **Tier 2 (Region):** $\delta_{m} \sim N(\delta_{c}, \sigma_{\delta_m})$
-* **Tier 3 (Country):** $\delta_{s} \sim N(\delta_{m}, \sigma_{\delta_s})$
+* **Global Baseline:** $\delta\_0 \sim N(0, 1)$
+* **Tier 1 (Continent):** $\delta\_c \sim N(\delta\_0, \sigma\_{\delta\_c})$
+* **Tier 2 (Region):** $\delta\_m \sim N(\delta\_c, \sigma\_{\delta\_m})$
+* **Tier 3 (Country):** $\delta\_s \sim N(\delta\_m, \sigma\_{\delta\_s})$
 
-**Hyperpriors:** The standard deviation parameters controlling the variance between spatial tiers ($\sigma_{\delta_c}$, $\sigma_{\delta_m}$, $\sigma_{\delta_s}$) are modeled using Half-Normal distributions to regularize the estimates toward the spatial mean (shrinkage). 
+**Hyperpriors:** The standard deviation parameters controlling the variance between spatial tiers ($\sigma\_{\delta\_c}$, $\sigma\_{\delta\_m}$, $\sigma\_{\delta\_s}$) are modeled using Half-Normal distributions to regularize the estimates toward the spatial mean (shrinkage). 
 * At the continental and regional levels, these are specified as weakly informative: $\sigma \sim N^+(0, 1.0)$. 
-* At the country level, the hyperprior is dynamically specified based on cancer-specific informativity: $\sigma_{\delta_s} \sim N^+(0, \Sigma)$. For highly informative, well-sampled sites (e.g., Lung, Breast, Colorectal), tighter priors are preferred (e.g., $\Sigma = 0.05$), while sparser sites (e.g., Liver) utilize broader priors (e.g., $\Sigma = 0.5$). This $\Sigma$ value is controlled via the `--sigma` command-line argument.
+* At the country level, the hyperprior is dynamically specified based on cancer-specific informativity: $\sigma\_{\delta\_s} \sim N^+(0, \Sigma)$. For highly informative, well-sampled sites (e.g., Lung, Breast, Colorectal), tighter priors are preferred (e.g., $\Sigma = 0.05$), while sparser sites (e.g., Liver) utilize broader priors (e.g., $\Sigma = 0.5$). This $\Sigma$ value is controlled via the `--sigma` command-line argument.
 
 *Note: Initial values for the MCMC chains are computationally derived using a frequentist mixed-effects Poisson model (`glmer` from `lme4`) to ensure efficient convergence.*
 
