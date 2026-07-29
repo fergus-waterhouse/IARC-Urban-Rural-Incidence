@@ -10,7 +10,7 @@
 
 A Bayesian hierarchical model used to estimate the Incidence Rate Ratio (IRR) for cancer incidence associated with a specific continuous covariate (e.g., the standardized percentage of the population living in urban areas within a registry catchment). 
 
-The model relies on incidence data derived from the **Cancer Incidence in 5 Continents (CI5)** and **NORDCAN** datasets. By using priors that are spatially structured using a nested hierarchy at the global, continental, regional, and country levels, the model leverages information across geographical tiers to produce robust, smoothed posterior estimates of covariate effects on cancer risk. 
+The model was designed to use incidence data derived from the **Cancer Incidence in 5 Continents (CI5)** dataset. By using priors that are spatially structured using a nested hierarchy at the global, continental, regional, and country levels, the model leverages information across geographical tiers to produce robust, smoothed posterior estimates of covariate effects on cancer risk. 
 
 ## Methodology
 
