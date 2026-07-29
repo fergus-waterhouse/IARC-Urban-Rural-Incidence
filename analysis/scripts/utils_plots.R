@@ -4,7 +4,6 @@ library(patchwork)
 library(tidyr)
 
 # ------ HELPER FUNCTIONS ------
-# Helper function to dynamically darken hex colors for borders
 darken_hex <- function(color, factor = 1.4) {
     if(is.na(color)) return(NA)
     rgb_vals <- col2rgb(color) / factor
@@ -13,15 +12,13 @@ darken_hex <- function(color, factor = 1.4) {
 
 
 # ------ PLOTS ------
-# Main figure
 plot_unified_tracks <- function(df_global, df_cont, df_reg, df_ctry, 
                                 region_order, sdg_palette, cont_palette, 
                                 label_thresh = c(0.95, 1.075), top_breaks = c(0.7, 0.8, 0.9, 1, 1.2, 1.4, 1.6, 1.8, 2.0), top_factor = 4) {
     
     combined_palette <- c(sdg_palette, cont_palette)
     combined_palette <- combined_palette[unique(names(combined_palette))]
-    
-    # Pre-calculate significance
+
     df_cont <- df_cont %>% mutate(is_significant = (exp(lo) > 1 | exp(hi) < 1))
     df_ctry <- df_ctry %>% mutate(is_significant = (exp(lo) > 1 | exp(hi) < 1))
     
@@ -92,7 +89,7 @@ plot_unified_tracks <- function(df_global, df_cont, df_reg, df_ctry,
     x_min_all <- min(all_vals, na.rm = TRUE) * 0.8
     x_max_all <- max(all_vals, na.rm = TRUE) * 1.2
     
-    # 5. FUNNEL BOUNDARIES AND LABELS
+    # 5. DETAILS
     top_labels <- (top_breaks - 1) / top_factor + 1
     
     y_top_reg  <- n_reg                                      
@@ -114,7 +111,7 @@ plot_unified_tracks <- function(df_global, df_cont, df_reg, df_ctry,
         y = c(y_funnel_top, y_funnel_top_mid, y_funnel_bot_mid, y_funnel_bot)
     )
     
-    # 6. BUILD THE PLOT
+    # 6. THE PLOT
     ggplot() +
         geom_segment(data = combined_tracks, aes(y = y_pos, yend = y_pos, x = x_min_all, xend = x_max_all), color = "grey15", linewidth = 0.5) +
         geom_vline(xintercept = 1, linetype = "solid", color = "grey25", linewidth = 0.8) +
@@ -146,14 +143,13 @@ plot_unified_tracks <- function(df_global, df_cont, df_reg, df_ctry,
 }
 
 
-# Generates the 4-Panel Linear IRR plot across Global, Continent, Region, and Country levels
+# Generates the 4-Panel IRR plot across Global, Continent, Region, and Country levels
 plot_4panel_linear <- function(df_global, df_cont, df_reg, df_ctry, 
                                sdg_palette, cont_palette, total_registries,
                                cont_order = NULL, region_order = NULL) {
     
     combined_palette <- c(sdg_palette, cont_palette)
     
-    # Fallback to alphabetical if no explicit geographic orders are passed
     if (is.null(cont_order)) cont_order <- sort(unique(df_cont$continent))
     if (is.null(region_order)) region_order <- sort(unique(df_reg$region))
     
@@ -288,7 +284,6 @@ plot_4panel_linear <- function(df_global, df_cont, df_reg, df_ctry,
         ylab("") + xlab("") + theme_minimal() + shared_theme + 
         theme(axis.text.y = element_blank(), axis.ticks.y = element_blank()) + labs(title = "Country")
     
-    # Combine using Patchwork dynamically distributing space
     final_linear <- p1 + p2 + p3 + p4 + plot_layout(widths = c(1, nrow(conts_filtered), nrow(regs_ordered), nrow(countries_filtered)))
     
     return(final_linear)
@@ -298,10 +293,8 @@ plot_4panel_linear <- function(df_global, df_cont, df_reg, df_ctry,
 # Generates the linear regression plot of HDI vs Country IRR
 plot_hdi_regression <- function(country_irr_df, hdi_vec, cont_palette) {
     
-    # Generate a darkened border palette automatically
     cont_dark_palette <- sapply(cont_palette, darken_hex, factor = 1.4)
     
-    # Prep data: map HDI, check significance, and map sizes/colors
     plot_data <- country_irr_df %>%
         mutate(
             hdi = hdi_vec[as.character(country)],
@@ -309,17 +302,24 @@ plot_hdi_regression <- function(country_irr_df, hdi_vec, cont_palette) {
             fill_var = if_else(is_significant, as.character(continent), "Non-Significant"),
             point_size = if_else(is_significant, 3.5, 2.5)
         ) %>%
-        filter(!is.na(hdi)) # Drop countries without HDI data
+        filter(!is.na(hdi))
     
-    # Build and return the ggplot object
     ggplot(plot_data, aes(x = hdi, y = exp(median))) +
-        geom_hline(yintercept = 1, linetype = "solid", color = "grey60") +
+        
+    annotate("rect", 
+                xmin = c(-Inf, 0.70, 0.80), 
+                xmax = c(0.70, 0.80, Inf), 
+                ymin = -Inf, ymax = Inf, 
+                fill = c("red", "yellow", "green"), 
+                alpha = 0.04) + 
+
+    geom_hline(yintercept = 1, linetype = "solid", color = "grey60") +
         geom_point(aes(fill = fill_var, color = continent, size = point_size), 
-                   shape = 23, stroke = 1.2) +
+                shape = 23, stroke = 1.2) +
         geom_smooth(method = "lm", color = "grey30", linetype = "dashed",
                     linewidth = 1, se = FALSE) +
         scale_fill_manual(
-            values = c(cont_palette, "Non-Significant" = "white"),
+            values = c(cont_palette, "Non-Significant" = NA),
             name = "Point Fill (Significant)"
         ) +
         scale_color_manual(
@@ -327,17 +327,29 @@ plot_hdi_regression <- function(country_irr_df, hdi_vec, cont_palette) {
             name = "Continent"
         ) +
         scale_size_identity() +
-        labs(
-            x = "Human Development Index",
-            y = "Incidence Rate Ratio (IRR)"
+        
+        scale_x_continuous(
+            limits = c(0.55, 1),
+            breaks = c(0.55, 0.625, 0.70, 0.75, 0.80, 0.90, 1.0),
+            labels = c("", "Middle", "", "High", "", "Very High", "")
         ) +
-        theme_minimal() +
-        theme(
-            panel.grid.minor = element_blank(),
-            legend.position = "none",
-            axis.ticks = element_line(color = "grey30", linewidth = 0.8),
-            axis.line = element_line(colour = "grey30", linewidth = 0.8)
+    
+    labs(x = "", y = "") +
+
+    theme_minimal() +
+    theme(
+        panel.grid.minor = element_blank(),
+        panel.grid.major.x = element_blank(),
+        panel.border = element_rect(fill = NA, linewidth = 1.6, color = "black"),
+        legend.position = "none",
+        axis.text = element_text(size = 10),
+        axis.ticks.y = element_line(color = "black", linewidth = 0.8),
+        axis.ticks.x = element_line(
+            color = c("black", "transparent", "black", "transparent", "black", "transparent", "black"),
+            linewidth = 0.8
         )
+    )
+
 }
 
 
@@ -379,75 +391,7 @@ plot_obs_vs_pred <- function(obs_df, pred_df, target_country, cancer) {
 }
 
 
-
-# Predicted regional ASIR by Region
-plot_regional_asir <- function(plot_df, region_ranges, reg_urban_2017, reg_urban_2050, 
-                               cont_order, full_palette) {
-    
-    # Ensure factor ordering aligns with geographic logic
-    plot_df$continent <- factor(plot_df$continent, levels = cont_order)
-    plot_df <- plot_df %>% arrange(continent, name)
-    plot_df$name <- factor(plot_df$name, levels = unique(plot_df$name))
-    region_ranges$name <- factor(region_ranges$name, levels = levels(plot_df$name))
-    
-    # Calculate specific projection points and hex colors natively
-    region_points <- plot_df %>%
-        group_by(continent, name) %>%
-        summarise(
-            urban_val = reg_urban_2017[as.character(name[1])], 
-            asir_val = approx(x, y, xout = urban_val)$y, 
-            .groups = "drop"
-        ) %>%
-        rowwise() %>% mutate(dark_hex = darken_hex(full_palette[as.character(name)], 1.4)) %>% ungroup()
-    
-    region_points_2050 <- plot_df %>%
-        group_by(continent, name) %>%
-        summarise(
-            urban_val = reg_urban_2050[as.character(name[1])], 
-            asir_val = approx(x, y, xout = urban_val)$y, 
-            .groups = "drop"
-        ) %>%
-        rowwise() %>% mutate(dark_hex = darken_hex(full_palette[as.character(name)], 1.4)) %>% ungroup()
-    
-    # Build the GGPlot
-    ggplot(plot_df) + 
-        # Area and trend
-        geom_area(aes(x = x, y = y, color = name, fill = name), linewidth = 1, alpha = 0.3) + 
-        
-        # Extrapolation Masks (Fades areas outside observed data)
-        geom_rect(data = region_ranges, aes(xmin = -Inf, xmax = min_urb, ymin = -Inf, ymax = Inf), fill = "white", alpha = 0.4, inherit.aes = FALSE) +
-        geom_rect(data = region_ranges, aes(xmin = max_urb, xmax = Inf, ymin = -Inf, ymax = Inf), fill = "white", alpha = 0.4, inherit.aes = FALSE) +
-        
-        # 2017 Dropdown Line
-        geom_segment(data = region_points, aes(x = urban_val, xend = urban_val, y = 0, yend = asir_val), color = "grey40", linetype = "dashed", linewidth = 0.8) +
-        
-        # 2050 & 2017 Points
-        geom_point(data = region_points_2050, aes(x = urban_val, y = asir_val, color = I(dark_hex), fill = I(dark_hex)), shape = 21, stroke = 1.4, size = 1.5) +
-        geom_point(data = region_points, aes(x = urban_val, y = asir_val, color = I(dark_hex)), shape = 21, stroke = 1.4, size = 2, fill = "white") +
-        
-        # Labels
-        geom_text(data = region_points_2050 %>% filter(name %in% c("E Asia", "SE Asia", "S-S Africa")), aes(x = urban_val, y = asir_val, label = "2050"), color = "grey30", vjust = -1.2, size = 2.75) +
-        geom_text(data = region_points, aes(x = urban_val, y = asir_val, label = "2017"), color = "grey30", vjust = -1.2, size = 2.75) +
-        
-        scale_color_manual(values = full_palette) + 
-        scale_fill_manual(values = full_palette) + 
-        facet_wrap(~ name, ncol = 6) + 
-        scale_y_continuous(limits = c(0, 1.25 * max(plot_df$y))) +
-        scale_x_continuous(limits = c(0, 1), breaks = c(0, 1)) +
-        
-        labs(y = "ASIR per 100,000", x = "Proportion Urban") +
-        theme_minimal() + 
-        theme(
-            legend.position = "none",
-            panel.grid.minor.x = element_blank(), panel.grid.major.x = element_blank(),
-            strip.text = element_text(face = "plain", size = 9),
-            axis.line = element_line(color = "grey30", linewidth = 0.8),
-            axis.ticks = element_line(color = "grey30", linewidth = 0.8)
-        )
-}
-
-
-# Plots the posterior age trend (Spline + 95% CrI) faceted by the hierarchy level
+# Posterior age trend
 plot_posterior_age_trend <- function(curve_df, level_col, title_prefix, cancer) {
     p <- ggplot(curve_df, aes(x = agr)) +
         geom_ribbon(aes(ymin = pred_rate_100k_lo / 100000, ymax = pred_rate_100k_hi / 100000), color = "black", alpha = 0.3) +
@@ -473,10 +417,8 @@ plot_posterior_age_trend <- function(curve_df, level_col, title_prefix, cancer) 
         p <- p + facet_wrap(as.formula(paste0("~", level_col)), ncol = 3, scales = "free_y")
     } 
     
-    
     return(p)
 }
-
 
 
 # Generates trace plots for an mcmc.list, showing multiple chains and R-hat
@@ -498,10 +440,7 @@ plot_mcmc_traces <- function(mcmc_list, param_labels = NULL, ncol = 4) {
     # 3. Safely map labels (Clean subtitles)
     if (!is.null(param_labels)) {
         disp_names <- param_labels[param_names]
-        # Replace any NAs with the raw parameter name just in case mapping failed
         disp_names[is.na(disp_names)] <- param_names[is.na(disp_names)]
-        
-        # Smart fallback: If duplicates somehow exist, append the parameter name to disambiguate
         dup_idx <- duplicated(disp_names) | duplicated(disp_names, fromLast = TRUE)
         disp_names[dup_idx] <- paste0(disp_names[dup_idx], " (", param_names[dup_idx], ")")
     } else {
@@ -509,15 +448,15 @@ plot_mcmc_traces <- function(mcmc_list, param_labels = NULL, ncol = 4) {
     }
     names(disp_names) <- param_names
     
-    # Map R-hat into the facet string
+    # 4. R-hat into string
     facet_levels <- paste0(disp_names, "\n(R-hat: ", sprintf("%.3f", rhats[param_names]), ")")
     names(facet_levels) <- param_names
     
-    # Apply factor levels (Guaranteed strictly unique now)
+    # 5. Apply factor levels 
     plot_df$FacetLabel <- facet_levels[plot_df$Parameter]
     plot_df$FacetLabel <- factor(plot_df$FacetLabel, levels = unique(facet_levels))
     
-    # 4. Build Plot
+    # 6. Build Plot
     ggplot(plot_df, aes(x = Iteration, y = Value, color = Chain)) +
         geom_line(alpha = 0.8, linewidth = 0.3) +
         facet_wrap(~ FacetLabel, ncol = ncol, scales = "free_y") +
@@ -530,58 +469,4 @@ plot_mcmc_traces <- function(mcmc_list, param_labels = NULL, ncol = 4) {
             panel.border = element_rect(color = "grey80", fill = NA)
         ) +
         labs(x = "Iteration", y = "Parameter Value", color = "Chain")
-}
-
-
-# Generates a drill-down spline plot with background curves, a reference curve, and a highlighted target
-plot_highlight_spline <- function(bg_curves, hl_curve, ref_curve = NULL, 
-                                  hl_color, hl_label, title, group_col) {
-    
-    p <- ggplot()
-    
-    # 1. Background curves (Grey)
-    if (!is.null(bg_curves) && nrow(bg_curves) > 0) {
-        p <- p + geom_line(
-            data = bg_curves, 
-            aes(x = agr, y = pred_rate_100k, group = .data[[group_col]]), 
-            color = "grey80", linewidth = 0.8, alpha = 0.6
-        )
-    }
-    
-    # 2. Reference curve (Black Dashed - Parent Level)
-    if (!is.null(ref_curve) && nrow(ref_curve) > 0) {
-        p <- p + geom_line(
-            data = ref_curve, 
-            aes(x = agr, y = pred_rate_100k), 
-            color = "black", linetype = "dashed", linewidth = 0.9
-        )
-    }
-    
-    # 3. Highlighted target curve (Colored + Label)
-    if (!is.null(hl_curve) && nrow(hl_curve) > 0) {
-        p <- p + geom_line(
-            data = hl_curve, 
-            aes(x = agr, y = pred_rate_100k), 
-            color = hl_color, linewidth = 1.2
-        )
-        
-        # Add label at the very end of the curve (Age Group 18)
-        label_data <- hl_curve %>% filter(agr == max(agr))
-        p <- p + ggrepel::geom_text_repel(
-            data = label_data, 
-            aes(x = agr, y = pred_rate_100k, label = hl_label),
-            color = hl_color, fontface = "bold", size = 4,
-            nudge_x = 1.5, direction = "y", hjust = 0, segment.color = NA
-        )
-    }
-    
-    # Ensure X-axis has room for the ggrepel label at the end
-    p + scale_x_continuous(limits = c(1, 22), breaks = seq(2, 18, 4)) + 
-        labs(title = title, x = "Age Group (1-18)", y = "Rate per 100,000") +
-        theme_minimal() +
-        theme(
-            panel.grid.minor = element_blank(),
-            plot.title = element_text(face = "bold", size = 12),
-            axis.line = element_line(color = "grey30")
-        )
 }

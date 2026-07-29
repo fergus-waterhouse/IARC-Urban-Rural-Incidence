@@ -76,7 +76,7 @@ extract_scalar_summary <- function(mcmc_mat, param_name) {
     )
 }
 
-# Safely extracts spline matrices (e.g., bs2) for all hierarchical IDs
+# Extracts spline matrices for all hierarchical IDs
 extract_spline_matrix <- function(mcmc_mat, prefix, expected_rows, K = 4) {
     b_mat <- matrix(0, nrow = expected_rows, ncol = K)
     for (i in 1:expected_rows) {
@@ -90,9 +90,9 @@ extract_spline_matrix <- function(mcmc_mat, prefix, expected_rows, K = 4) {
     return(b_mat)
 }
 
-# Extracts the literal `lograte` array and cb বিকালinds it safely to the dataset
+# Extracts the `lograte` array 
 extract_and_bind_logrates <- function(inc_data, modfile) {
-    cat("Extracting literal lograte nodes from $samples...\n")
+    cat("Extracting lograte nodes from $samples...\n")
     
     mcmc_raw <- readRDS(modfile)
     combined_samples <- as.matrix(mcmc.list(lapply(mcmc_raw, function(x) as.mcmc(x$samples))))
