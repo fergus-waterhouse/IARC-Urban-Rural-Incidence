@@ -1,0 +1,473 @@
+regid,regcode,reglab,Urban
+101200399,AFALGBAT,"Algeria, Batna ",69
+101200799,AFALGTIZ,"Algeria, Tizi Ouzou ",
+120400199,AFBENCOT,"Benin, Cotonou ",
+125009099,AFFRRREU,"France, La Réunion ",
+140400199,AFKENELD,"Kenya, Eldoret ",55
+140400299,AFKENNAI,"Kenya, Nairobi ",100
+148000099,AFMAU10,Mauritius ,40
+150400199,AFMORCAS,"Morocco, Casablanca ",92
+169000099,AFSEY10,Seychelles ,95
+171000199,AFSOUTRA,"South Africa, Eastern Cape ",100
+171600199,AFZIMBUL,"Zimbabwe, Bulawayo: African ",
+171600299,AFZIMHAR,"Zimbabwe, Harare: African ",100
+180000299,AFUGAKAM,"Uganda, Kyadondo County ",70
+180000399,AFUGAGUL,"Uganda, Gulu ",40
+203200599,ALARGENT,"Argentina, Entre Ríos Province ",86
+203200799,ALARGMEN,"Argentina, Mendoza ",80
+207600299,ALBRAGOI,"Brazil, Goiânia ",99
+207600399,ALBRABAR,"Brazil, Barretos ",95
+207600699,ALBRACAM,"Brazil, Campinas ",98
+207601199,ALBRAARA,"Brazil, Aracaju ",100
+207601299,ALBRACUR,"Brazil, Curitiba ",100
+207601399,ALBRAJPE,"Brazil, João Pessoa ",100
+207601599,ALBRAREC,"Brazil, Recife ",100
+207601799,ALBRAJAU,"Brazil, Jaú ",97
+207601899,ALBRABHO,"Brazil, Belo Horizonte ",100
+215200199,ALCHIVAL,"Chile, Valdivia ",72
+215200399,ALCHIANT,"Chile, Region of Antofagasta ",97
+217000199,ALCOLCAL,"Colombia, Cali ",
+217000299,ALCOLBUC,"Colombia, Bucaramanga ",96
+217000399,ALCOLMAN,"Colombia, Manizales ",93
+217000499,ALCOLPAS,"Colombia, Pasto ",82
+218800099,ALCOS10,Costa Rica ,77
+221800199,ALECUQUI,"Ecuador, Quito ",100
+221800399,ALECUGUA,"Ecuador, Guayaquil ",66
+221800599,ALECUMAN,"Ecuador, Manabí ",100
+225009199,ALFRMMAR,"France, Martinique ",98
+225009299,ALFRGGUA,"France, Guadeloupe ",96.4
+260400299,ALPERLIM,"Peru, Lima ",100
+263000099,ALPUE10,"USA, Puerto Rico ",94
+278000099,ALTAT10,Trinidad and Tobago ,53.4
+285800099,ALURU10,Uruguay ,94
+312400199,ANCANALB,"Canada, Alberta ",85
+312400299,ANCANBCO,"Canada, British Columbia ",85
+312400399,ANCANMAN,"Canada, Manitoba ",68
+312400599,ANCANNBR,"Canada, New Brunswick ",53
+312400799,ANCANPEI,"Canada, Prince Edward Island ",50
+312400899,ANCANNFD,"Canada, Newfoundland and Labrador ",60
+312400999,ANCANYUK,"Canada, Yukon ",60
+312401099,ANCANONT,"Canada, Ontario ",82
+312401199,ANCANQUE,"Canada, Quebec ",
+312401299,ANCANSAN,"Canada, Saskatchewan ",67
+384000099,ANUSA10,USA ,
+384000299,ANUSACAF,"USA, California, San Francisco Bay Area ",
+384000399,ANUSACAL,"USA, California, Los Angeles County ",
+384000499,ANUSACON,"USA, Connecticut ",88
+384000599,ANUSAGEA,"USA, Georgia, Atlanta ",
+384000699,ANUSAIOW,"USA, Iowa ",64.0
+384000799,ANUSALAO,"USA, Louisiana, New Orleans ",73.2
+384000899,ANUSAMID,"USA, Michigan, Detroit ",
+384000999,ANUSANEM,"USA, New Mexico ",77.4
+384001299,ANUSAUTA,"USA, Utah ",90.6
+384001399,ANUSAWEW,"USA, Washington, Seattle ",
+384001599,ANUSANEJ,"USA, New Jersey ",94.7
+384001699,ANUSANEY,"USA, New York State ",87.9
+384001999,ANUSAKEN,"USA, Kentucky ",58.4
+384002099,ANUSA15,"USA, SEER (9 registries)",
+384002299,ANUSALAA,"USA, Louisiana ",73
+384002499,ANUSA12,"USA, SEER (18 registries)",
+384002599,ANUSACAA,"USA, California ",95.0
+384004099,ANUSAARK,"USA, Arkansas ",56.2
+384004299,ANUSAMAR,"USA, Maryland ",87.2
+384004399,ANUSAMIN,"USA, Minnesota ",73.3
+384004499,ANUSAMIP,"USA, Mississippi ",49.4
+384004599,ANUSACLN,"USA, North Carolina ",66.1
+384004699,ANUSADAN,"USA, North Dakota ",59.9
+384004799,ANUSANBA,"USA, Nebraska ",73.1
+384004999,ANUSANDA,"USA, Nevada ",94.2
+384005099,ANUSAALS,"USA, Alaska ",66
+384005199,ANUSAALB,"USA, Alabama ",59.0
+384005299,ANUSAARI,"USA, Arizona ",89.8
+384005399,ANUSACOL,"USA, Colorado ",86.2
+384005499,ANUSADIC,"USA, District of Columbia ",
+384005599,ANUSAFLO,"USA, Florida ",91.2
+384005699,ANUSAGAA,"USA, Georgia ",75.1
+384005799,ANUSAIDA,"USA, Idaho ",71
+384005999,ANUSAIND,"USA, Indiana ",72.4
+384006099,ANUSAMAS,"USA, Massachusetts ",92.0
+384006199,ANUSAMAI,"USA, Maine ",38.7
+384006299,ANUSAMIC,"USA, Michigan ",74.6
+384006399,ANUSAMIR,"USA, Missouri ",70.4
+384006499,ANUSAMTA,"USA, Montana ",55.9
+384006599,ANUSAOHI,"USA, Ohio ",77.9
+384006699,ANUSAOKL,"USA, Oklahoma ",66.2
+384006799,ANUSAORE,"USA, Oregon ",81.0
+384006999,ANUSARIS,"USA, Rhode Island ",90.7
+384007099,ANUSACLS,"USA, South Carolina ",66.3
+384007199,ANUSATXS,"USA, Texas ",84.7
+384007299,ANUSAVER,"USA, Vermont ",38.9
+384007399,ANUSAWAS,"USA, Washington State ",84.1
+384007499,ANUSAVIW,"USA, West Virginia ",48.7
+384007699,ANUSAWYO,"USA, Wyoming ",64.8
+384007899,ANUSADAS,"USA, South Dakota ",56.7
+384007999,ANUSATNN,"USA, Tennessee ",66.4
+384008099,ANUSA11,"USA, NPCR ",76
+404800046,ASBAH10bah,Bahrain: Bahrainis ,
+409600099,ASBRU10,Brunei Darussalam ,100
+415600199,ASCHIBEI,"China, Beijing City ",99
+415600299,ASCHIQID,"China, Qidong City ",59
+415600399,ASCHISHA,"China, Shanghai City ",89.3
+415600599,ASCHIFEI,"China, Feicheng City ",51.6
+415600699,ASCHICIX,"China, Cixian County ",7
+415600799,ASCHIJIS,"China, Jiashan County ",45
+415600899,ASCHILIZ,"China, Linzhou City ",20
+415600999,ASCHIWUH,"China, Wuhan City ",100
+415601099,ASCHIBAO,"China, Baoding City ",100
+415601299,ASCHIANS,"China, Anshan City ",96.75
+415601499,ASCHIZHO,"China, Zhongshan City ",71.6
+415601599,ASCHINAN,"China, Nangang District, Harbin City ",96
+415601699,ASCHISHX,"China, Shexian County ",48
+415601899,ASCHIYTI,"China, Yanting County ",18
+415601999,ASCHIYGZ,"China, Yangzhong City ",
+415602099,ASCHIHAG,"China, Haining City ",57.93
+415602199,ASCHIHAH,"China, Hangzhou City ",76.8
+415602299,ASCHIDAL,"China, Dalian City ",
+415602399,ASCHIJIX,"China, Nanhu District, Jiaxing City ",51.67
+415602499,ASCHIGUA,"China, Guangzhou City ",84.01
+415602599,ASCHIHAE,"China, Haimen District, Nantong City ",65
+415603599,ASCHILIQ,"China, Linqu County ",51.87
+415603799,ASCHICIL,"China, Cixi City ",72.89
+415603899,ASCHIDAF,"China, Dafeng District, Yancheng City ",60.65
+415604199,ASCHIDAN,"China, Dancheng County ",30
+415604499,ASCHIDEH,"China, Dehui City ",
+415604599,ASCHIDON,"China, Donghai County ",52.7
+415604799,ASCHIGAN,"China, Ganyu District, Lianyungang City ",56.8
+415604899,ASCHIGAO,"China, Ganzhou District, Zhangye City ",35.7
+415605099,ASCHIGON,"China, Gong'an County ",41
+415605199,ASCHIGUB,"China, Guanyun County ",
+415605299,ASCHIGUI,"China, Guilin City ",91.25
+415605399,ASCHIHEF,"China, Hefei City ",84
+415605499,ASCHIHEN,"China, Hengdong County ",40.7
+415605599,ASCHIHEP,"China, Hepu County ",
+415605799,ASCHIHUB,"China, Huaiyin District, Huai'an City ",46.79
+415606099,ASCHIJIG,"China, Jiangmen City ",
+415606299,ASCHIJJG,"China, Jingtai County ",26
+415606399,ASCHIJJI,"China, Jingxian County ",20.06
+415606599,ASCHIJJY,"China, Jiyuan City ",23
+415606799,ASCHILIA,"China, Lianshui County ",49.46
+415606899,ASCHILIB,"China, Lianyungang City ",100
+415607199,ASCHILJU,"China, Liuzhou City ",49.53
+415607399,ASCHILUP,"China, Luoyang City ",94.5
+415607599,ASCHIMAA,"China, Ma'anshan City ",
+415607699,ASCHIMAH,"China, Macheng City ",18.08
+415607899,ASCHINEI,"China, Neixiang County ",5
+415608099,ASCHIQIN,"China, Chengdu City ",100
+415608199,ASCHISHB,"China, Shangyu District, Shaoxing City ",50.19
+415608499,ASCHISHG,"China, Sheyang County ",57.95
+415608699,ASCHITEN,"China, Tengzhou City ",60.32
+415609099,ASCHIWUA,"China, Wu'an City ",29.37
+415609299,ASCHIWUX,"China, Wuxi City ",75
+415609399,ASCHIXIA,"China, Xianju County ",50.8
+415609499,ASCHIXIN,"China, Xining City ",95.76
+415609699,ASCHIXIP,"China, Xiping County ",20
+415609799,ASCHIYGQ,"China, Yangquan City ",63.04
+415609899,ASCHIYJI,"China, Yanji City ",
+415609999,ASCHIYJS,"China, Yanshi City ",15
+415610199,ASCHIYUG,"China, Yingdong District, Fuyang City ",21
+415610299,ASCHIYUL,"China, Yueyanglou District, Yueyang City ",95.5
+415610399,ASCHIZHA,"China, Zhaoyuan City ",44
+415610499,ASCHIZHU,"China, Zhuanghe City ",40.33
+415610599,ASCHIZHV,"China, Zhuhai City ",89
+415611099,ASCHIANF,"China, Anfu County ",33
+415611199,ASCHIANG,"China, Anguo City ",15
+415611299,ASCHIAOH,"China, Aohan Banner, Chifeng City ",56
+415611399,ASCHIARU,"China, Arongqi ",27.68
+415611699,ASCHIBIN,"China, Binhai County ",53.5
+415611799,ASCHICAZ,"China, Cangzhou City ",80
+415611899,ASCHICGF,"China, Changfeng County ",56
+415612399,ASCHICGZ,"China, Changzhou City ",72.4
+415612699,ASCHIDNG,"China, Dangtu County ",
+415612799,ASCHIDNY,"China, Danyang City ",
+415613099,ASCHIDBW,"China, Dawukou District, Shizuishan City ",90.02
+415613199,ASCHIDGA,"China, Donggang County ",
+415613299,ASCHIDGU,"China, Dongguan City ",89.14
+415613399,ASCHIDOT,"China, Dongtai City ",
+415613499,ASCHIDUA,"China, Duanzhou District, Zhaoqing City ",100
+415613599,ASCHIEWE,"China, Evenki Autonomous Banner ",83.86
+415613699,ASCHIFAK,"China, Faku County ",
+415613799,ASCHIFAN,"China, Fangcheng County ",
+415613999,ASCHIFEX,"China, Feixi County ",68.57
+415614299,ASCHIFUQ,"China, Fuqing City ",48.5
+415614499,ASCHIGAC,"China, Gaocheng City ",100
+415614599,ASCHIGAM,"China, Gaomi City ",57.4
+415614799,ASCHIGUG,"China, Guang'an District, Guang'an City ",28
+415614899,ASCHIGUH,"China, Guanghan City ",53.77
+415615099,ASCHIHAA,"China, Hai'an City ",61.89
+415615199,ASCHIHAB,"China, Hailar District, Hulun Buir City ",84.17
+415615599,ASCHIHEC,"China, Hebi City ",20
+415615699,ASCHIHEM,"China, Hengfeng County ",51.76
+415615799,ASCHIHOH,"China, Honghu City ",47.33
+415615999,ASCHIHOS,"China, Hongshan District, Chifeng City ",96.8
+415616099,ASCHIHOT,"China, Hongta District, Yuxi City ",70.21
+415616499,ASCHIJIA,"China, Yinzhou District, Ningbo City ",82.23
+415616599,ASCHIJIE,"China, Jiange County ",
+415616699,ASCHIJII,"China, Jiangyin City ",69.11
+415616799,ASCHIJIY,"China, Jiayu County ",49.2
+415616899,ASCHIJIZ,"China, Jinan City ",
+415617199,ASCHIJJT,"China, Jintan District, Changzhou City ",64
+415617299,ASCHIJJU,"China, Jiulongpo District, Chongqing City ",
+415617499,ASCHIKAH,"China, Kaihua County ",47.92
+415617799,ASCHIKUN,"China, Kunshan City ",72.78
+415617899,ASCHILAG,"China, Langzhong City ",34.81
+415618099,ASCHILGS,"China, Liangshan County ",28.74
+415618499,ASCHILII,"China, Linhe District, Bayannur City ",69.5
+415618799,ASCHILJY,"China, Liyang City ",
+415618899,ASCHILON,"China, Longquan City ",31.84
+415619199,ASCHILUC,"China, Lucheng District, Wenzhou City ",87.36
+415619399,ASCHILUD,"China, Luoding City ",32.33
+415619499,ASCHILJE,"China, Luohe City ",36.22
+415619599,ASCHILJQ,"China, Luquan City ",100
+415619699,ASCHIMEI,"China, Meihekou City ",
+415619899,ASCHIMGJ,"China, Mengjin County ",47.94
+415620099,ASCHINNH,"China, Nanhai District, Foshan City ",94.89
+415620199,ASCHINNT,"China, Nantong City ",78.12
+415620299,ASCHINNX,"China, Nanxiong City ",47.26
+415620599,ASCHIQIA,"China, Qianxi County ",13.78
+415620799,ASCHIQIG,"China, Qingzhou City ",52.15
+415621199,ASCHIRUD,"China, Rudong County ",57.89
+415621299,ASCHIRUG,"China, Rugao City ",58.88
+415621399,ASCHISGZ,"China, Rural areas of Shanghai City ",
+415621699,ASCHIRUY,"China, Ruyang County ",23
+415621799,ASCHISAA,"China, Shan County ",44.23
+415622199,ASCHISHK,"China, Shapingba District, Chongqing City ",
+415622299,ASCHISHH,"China, Shijiazhuang City ",100
+415622699,ASCHISHR,"China, Shunde District, Foshan City ",98.61
+415622799,ASCHISON,"China, Song County ",38.24
+415622999,ASCHISUZ,"China, Suzhou City ",81.64
+415623599,ASCHIWAD,"China, Wangdu County ",14
+415623699,ASCHIWAZ,"China, Wanzai County ",52.3
+415623799,ASCHIWUU,"China, Wuhu City ",100
+415623999,ASCHIWUZ,"China, Wuzhou City ",75
+415624299,ASCHIXFU,"China, Xiangfu District, Kaifeng City ",12.68
+415624399,ASCHIXIB,"China, Xin'an County ",
+415624599,ASCHIXIJ,"China, Xinji City ",11.71
+415624699,ASCHIXIL,"China, Xinluo District, Longyan City ",
+415624799,ASCHIXIZ,"China, Xinzhou District, Shangrao City ",74.33
+415624899,ASCHIXJS,"China, Xishan District, Kunming City ",
+415625199,ASCHIXUY,"China, Xuyi County ",39.15
+415625299,ASCHIYAA,"China, Ya'an City ",42.55
+415625399,ASCHIYAK,"China, Yakeshi City ",56
+415625499,ASCHIYAN,"China, Yancheng City ",76.05
+415625699,ASCHIYUB,"China, Yi'an District, Tongling City ",48.15
+415625899,ASCHIYYU,"China, Yiyuan County ",23.38
+415625999,ASCHIYOA,"China, Yong'an City ",69.2
+415626099,ASCHIYOD,"China, Yongding District, Longyan City ",39.21
+415626199,ASCHIYOK,"China, Yongkang City ",39.48
+415626499,ASCHIYUC,"China, Yucheng County ",43
+415626699,ASCHIYUN,"China, Yunmeng County ",53.5
+415626799,ASCHIYUY,"China, Yunyang District, Shiyan City ",
+415626899,ASCHIYZN,"China, Yuzhong District, Chongqing City ",
+415627099,ASCHIZAN,"China, Zanhuang County ",100
+415627399,ASCHIZHJ,"China, Zhangjiagang City ",92.84
+415627599,ASCHIZHE,"China, Zhengding County ",41.4
+415627699,ASCHIZHX,"China, Zhongxiang City ",
+435600299,ASINDBAN,"India, Bangalore ",100
+435600399,ASINDMUM,"India, Mumbai ",100
+435600499,ASINDCHE,"India, Chennai ",100
+435600699,ASINDPOO,"India, Poona ",100
+435600799,ASINDBAR,"India, Barshi, Paranda, and Bhum ",0
+435600899,ASINDTRI,"India, Trivandrum ",53.7
+435601099,ASINDDEL,"India, New Delhi ",100
+435601199,ASINDDIN,"India, Dindigul, Ambilikkai ",37
+435601399,ASINDAUR,"India, Aurangabad ",100
+435601499,ASINDBHO,"India, Bhopal ",100
+435601599,ASINDKAM,"India, Kamrup Urban District ",100
+435601699,ASINDDIB,"India, Dibrugarh ",18.4
+435601799,ASINDMAN,"India, Manipur ",29
+435601999,ASINDMIZ,"India, Mizoram ",52
+435602099,ASINDWAR,"India, Wardha ",32.5
+435602199,ASINDKOM,"India, Kollam ",45
+435602299,ASINDTRP,"India, Tripura ",26.2
+435602499,ASINDMEG,"India, Meghalaya ",24.9
+435603099,ASINDARW,"India, West Arunachal ",25.8
+435603499,ASINDCHA,"India, Chandigarh ",97.25
+435603699,ASINDSAH,"India, SAS Nagar ",55
+435603799,ASINDSAN,"India, Sangrur District ",31
+435604099,ASINDTAM,"India, Tamil Nadu ",48
+435604199,ASINDAHM,"India, Ahmedabad, Urban ",100
+436400199,ASIRNARD,"Iran (Islamic Republic of), Ardabil Province ",68
+436400399,ASIRNGOL,"Iran (Islamic Republic of), Golestan Province ",50
+437600090,ASISR10jew,Israel: Jews ,
+437600094,ASISR10ara,Israel: Arabs ,
+437600099,ASISR10,Israel ,90
+439200099,ASJAP10,Japan ,100
+439200199,ASJAPHIR,"Japan, Hiroshima Prefecture ",64.5
+439200299,ASJAPMIY,"Japan, Miyagi Prefecture ",64
+439200499,ASJAPOSA,"Japan, Osaka Prefecture ",95.7
+439201099,ASJAPAIC,"Japan, Aichi Prefecture ",78
+439201499,ASJAPAOM,"Japan, Aomori Prefecture ",
+439201599,ASJAPGUN,"Japan, Gunma Prefecture ",
+439201699,ASJAPAKI,"Japan, Akita Prefecture ",
+441000099,ASKOS11,Republic of Korea ,81
+441000299,ASKOSBUS,"Republic of Korea, Busan ",95
+441000399,ASKOSSEO,"Republic of Korea, Seoul ",100
+441000499,ASKOSDAG,"Republic of Korea, Daegu ",82
+441000599,ASKOSDAJ,"Republic of Korea, Daejeon ",100
+441000899,ASKOSULS,"Republic of Korea, Ulsan ",99.8
+441000999,ASKOSJEJ,"Republic of Korea, Jeju ",
+441001099,ASKOSGWA,"Republic of Korea, Gwangju ",95
+441001199,ASKOSINC,"Republic of Korea, Incheon ",98
+441400025,ASKUW10kuw,Kuwait: Kuwaitis ,
+441400026,ASKUW10kux,Kuwait: Non-Kuwaitis ,
+441400099,ASKUW10,Kuwait ,100
+460800299,ASPHIMAN,"Philippines, Manila ",100
+463400099,ASQAT10,Qatar: Qatari ,
+470200020,ASSIN10chi,Singapore: Chinese ,
+470200027,ASSIN10mal,Singapore: Malay ,
+470200040,ASSIN10ind,Singapore: Indian ,
+470200099,ASSIN10,Singapore ,100
+476400199,ASTHACHI,"Thailand, Chiang Mai ",56
+476400299,ASTHAKHO,"Thailand, Khon Kaen ",23
+476400399,ASTHABAN,"Thailand, Bangkok ",
+476400499,ASTHASON,"Thailand, Songkhla ",55
+476400599,ASTHALAM,"Thailand, Lampang ",50
+476400799,ASTHALOP,"Thailand, Lopburi Province ",60
+479200199,ASTURIZM,"Turkey, Izmir ",91
+479200299,ASTURANT,"Turkey, Antalya ",99
+479200399,ASTURSAM,"Turkey, Samsun ",95
+479200499,ASTURBUR,"Turkey, Bursa ",98.5
+479200599,ASTURERZ,"Turkey, Erzurum ",87
+479200699,ASTURESK,"Turkey, Eskişehir ",89
+479200799,ASTUREDI,"Turkey, Edirne ",64.3
+479200899,ASTURTRA,"Turkey, Trabzon ",89
+479201099,ASTURGAZ,"Turkey, Gaziantep  ",99
+479201199,ASTURMAL,"Turkey, Malatya ",89.01
+504000099,EUAUT10,Austria ,
+504000299,EUAUTCAR,"Austria, Carinthia ",51
+504000799,EUAUTTYR,"Austria, Tyrol ",
+504000899,EUAUTVOR,"Austria, Vorarlberg ",36
+505600099,EUBEL10,Belgium ,87
+511200099,EUBEA10,Belarus ,77
+519100099,EUCRO10,Croatia ,56
+519600099,EUCYP10,Cyprus ,68
+520300099,EUCZE10,Czech Republic ,73
+520800099,EUDEN10,Denmark ,
+523300099,EUEST10,Estonia ,69
+524600099,EUFIN10,Finland ,71
+525000199,EUFRARBA,"France, Bas-Rhin ",87
+525000299,EUFRACAL,"France, Calvados ",69
+525000399,EUFRADOU,"France, Doubs ",78
+525000499,EUFRARHA,"France, Haut-Rhin ",71
+525000599,EUFRAISE,"France, Isère ",93
+525000699,EUFRASOM,"France, Somme ",57
+525000799,EUFRATAR,"France, Tarn ",68
+525000899,EUFRAHER,"France, Hérault ",83
+525000999,EUFRALIM,"France, Limousin ",76
+525001099,EUFRAGIR,"France, Gironde ",65
+525001199,EUFRABEL,"France, Territoire de Belfort ",90
+525001499,EUFRALOI,"France, Loire-Atlantique ",79
+525001599,EUFRAPOI,"France, Poitou-Charentes ",
+525001699,EUFRAMAN,"France, Manche ",48
+525001799,EUFRAVEN,"France, Vendée ",
+525001899,EUFRANOR,"France, Lille-Métropole ",95
+527600299,EUGERHAM,"Germany, Hamburg ",100
+527600399,EUGERBAV,"Germany, Bavaria ",27
+527600499,EUGERBAD,"Germany, Baden-Württemberg ",63
+527600699,EUGERSAL,"Germany, Lower Saxony ",
+527600999,EUGERRHP,"Germany, Rhineland-Palatinate ",25
+527601199,EUGERRNW,"Germany, North Rhine-Westphalia ",
+527601299,EUGERBRE,"Germany, Bremen ",100
+527601699,EUGERSCH,"Germany, Schleswig-Holstein ",65
+527603099,EUGERSAA,"Germany, Saarland ",
+535200099,EUICE10,Iceland ,30
+537200099,EUIRL10,Ireland ,63
+538000199,EUITATUS,"Italy, Tuscany ",60
+538000499,EUITAVAR,"Italy, Varese ",
+538000699,EUITARAG,"Italy, Ragusa and Caltanissetta ",95
+538000899,EUITATUR,"Italy, Turin ",88
+538001399,EUITAVEN,"Italy, Veneto ",99
+538001499,EUITAUMB,"Italy, Umbria ",52
+538001599,EUITASAS,"Italy, Sassari ",
+538001699,EUITANAP,"Italy, Naples South ",80
+538001899,EUITAFVG,"Italy, Friuli-Venezia Giulia ",80
+538001999,EUITATRE,"Italy, Trento ",58
+538002299,EUITAGEN,"Italy, Genova ",68
+538002599,EUITABRE,"Italy, Brescia ",
+538002699,EUITAMIL,"Italy, Milan ",97
+538002799,EUITASAL,"Italy, Salerno ",
+538002899,EUITASON,"Italy, Sondrio ",
+538002999,EUITASIR,"Italy, Syracuse ",
+538003199,EUITANUO,"Italy, Nuoro ",
+538003399,EUITAPAL,"Italy, Palermo ",50
+538003499,EUITATYS,"Italy, South Tyrol ",35
+538003799,EUITACAI,"Italy, Catania, Messina, and Enna ",
+538004099,EUITALXP,"Italy, Lombardy, South, Pavia ",35
+538004299,EUITABAS,"Italy, Basilicata ",49.7
+538004399,EUITABER,"Italy, Bergamo ",33
+538004499,EUITACAS,"Italy, Caserta ",60
+538004799,EUITAMON,"Italy, Brianza (Lecco and Monza e Brianza) ",50
+538005099,EUITAAOS,"Italy, Aosta Valley ",30
+538005199,EUITAAVE,"Italy, Avellino ",15
+538005299,EUITABEN,"Italy, Benevento ",15
+538005399,EUITACAL,"Italy, Calabria ",73
+538005599,EUITAMAR,"Italy, Marche ",78
+538005799,EUITAPUG,"Italy, Puglia ",100
+538005899,EUITAMOL,"Italy, Molise ",44
+538005999,EUITANAL,"Italy, Naples Centre ",100
+538006099,EUITANAN,"Italy, Naples North ",100
+538006199,EUITAMAO,"Italy, Mantova and Cremona ",20
+538006899,EUITAEMR,"Italy, Emilia-Romagna ",
+542800099,EULAT10,Latvia ,68
+543800099,EULIE10,Liechtenstein ,15
+544000099,EULIT10,Lithuania ,67
+547000099,EUMAL10,Malta ,85
+552800099,EUNET10,The Netherlands ,91
+557800099,EUNOR10,Norway ,
+561600799,EUPOLKIE,"Poland, Kielce ",45
+562000599,EUPORAZO,"Portugal, Azores ",45
+564300399,EURUSKAR,"Russian Federation, Karelia ",81
+564300499,EURUSSAM,"Russian Federation, Samara ",100
+564300699,EURUSARK,"Russian Federation, Arkhangelsk ",78
+564300799,EURUSPSK,"Russian Federation, Pskov ",73
+564300999,EURUSKAL,"Russian Federation, Kaliningrad ",77
+564301099,EURUSKOM,"Russian Federation, Komi Republic ",77.7
+564301199,EURUSMUR,"Russian Federation, Murmansk ",92
+564301299,EURUSVOL,"Russian Federation, Vologda Region ",72
+564301399,EURUSORE,"Russian Federation, Orenburg ",100
+570500099,EUSLN10,Slovenia ,55
+572400199,EUSPATAR,"Spain, Tarragona ",67
+572400299,EUSPAGRA,"Spain, Granada ",75
+572400399,EUSPAMUR,"Spain, Murcia ",97
+572400499,EUSPANAV,"Spain, Navarra ",50
+572400599,EUSPAAST,"Spain, Asturias ",74
+572400699,EUSPABAS,"Spain, Basque Country ",90
+572401099,EUSPAGIR,"Spain, Girona ",
+572401199,EUSPACAN,"Spain, Canary Islands ",
+572401499,EUSPARIO,"Spain, La Rioja ",65
+572401599,EUSPAVAL,"Spain, Castellón ",78
+572401799,EUSPACAS,"Spain, Salamanca ",59
+575200099,EUSWE10,Sweden ,86.5
+575600199,EUSWIBAS,"Switzerland, Basel ",100
+575600299,EUSWIGEN,"Switzerland, Geneva ",80
+575600499,EUSWISGA,"Switzerland, East ",100
+575600599,EUSWIVAU,"Switzerland, Vaud ",89.5
+575600899,EUSWIVAL,"Switzerland, Valais ",
+575601099,EUSWITIC,"Switzerland, Ticino ",100
+575601199,EUSWIGGL,"Switzerland, Graubünden and Glarus ",
+575601299,EUSWIFRI,"Switzerland, Fribourg ",
+575601499,EUSWIAAR,"Switzerland, Aargau ",48
+575601599,EUSWIBES,"Switzerland, Berne Solothurn ",42
+575601699,EUSWILUC,"Switzerland, Lucerne ",
+575601799,EUSWINEU,"Switzerland, Neuchâtel and Jura ",70
+575601899,EUSWIZUR,"Switzerland, Zurich and Zug ",95
+580400099,EUUKA10,Ukraine ,65
+582600199,EUUKM12,"UK, England ",82
+582602099,EUUKMSCO,"UK, Scotland ",82
+582603099,EUUKMNIR,"UK, Northern Ireland ",65
+582604099,EUUKMWAL,"UK, Wales ",70.7
+603600299,OCAUSNEW,"Australia, NSW/ACT ",84
+603600399,OCAUSQUE,"Australia, Queensland ",
+603600499,OCAUSSOA,"Australia, South Australia ",
+603600599,OCAUSTAS,"Australia, Tasmania ",70
+603600699,OCAUSVIC,"Australia, Victoria ",88
+603600799,OCAUSWES,"Australia, Western Australia ",78
+603600862,OCAUSNOTing,"Australia, Northern Territory: Indigenous ",
+603600863,OCAUSNOTinx,"Australia, Northern Territory: Non-Indigenous ",
+603600899,OCAUSNOT,"Australia, Northern Territory ",70
+625009399,OCFRNNEC,"France, New Caledonia ",65
+655400028,OCNEZ10mao,New Zealand: Maori ,
+655400029,OCNEZ10pac,New Zealand: Pacific peoples ,
+655400098,OCNEZ10oth,New Zealand: Other ,
+655400099,OCNEZ10,New Zealand ,85.9
+684009999,OCUSAHAW,"USA, Hawaii ",92
