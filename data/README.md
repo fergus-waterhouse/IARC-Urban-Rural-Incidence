@@ -1,7 +1,7 @@
-**raw/NORCAN** contains all the incidence data derived from NORDCAN (https://nordcan.iarc.fr/en)<br>
-**raw/urban.csv** is all the urban data for each registry.
+**raw/NORCAN** contains all the incidence and urban data derived from NORDCAN (https://nordcan.iarc.fr/en) and Nordic government sources.<br>
+**raw/urban.csv** is all the CI5 urban data.
 
-The **CI5XII.csv** file is too large to be stored on the repository. It can be sourced from https://ci5.iarc.fr/ci5-xii/download (CI5-XII summary database).
+The **CI5XII.csv** file containing the CI5 incidence data is too large to be stored on the repository. It can be sourced from https://ci5.iarc.fr/ci5-xii/download (CI5-XII summary database).
 
 The final dataset is synthesised from this raw data using the **process.R** script to give a .csv file.<br>
 Usage: Rscript process.R <ci5_file> <ci5_urban> <nordcan_dir> <outcsv>
