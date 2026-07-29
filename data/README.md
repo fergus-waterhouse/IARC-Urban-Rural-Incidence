@@ -1,10 +1,10 @@
-**raw/NORCAN** contains all the incidence data derived from NORDCAN (https://nordcan.iarc.fr/en)
+**raw/NORCAN** contains all the incidence data derived from NORDCAN (https://nordcan.iarc.fr/en)<br>
 **raw/urban.csv** is all the urban data for each registry.
 
 The **CI5XII.csv** file is too large to be stored on the repository. It can be sourced from https://ci5.iarc.fr/ci5-xii/download (CI5-XII summary database).
 
-The final dataset is synthesised from this raw data using the **process.R** script to give a .csv file.
-Usage: Rscript prepare_data.R <ci5_file> <ci5_urban> <nordcan_dir> <output>
+The final dataset is synthesised from this raw data using the **process.R** script to give a .csv file.<br>
+Usage: Rscript process.R <ci5_file> <ci5_urban> <nordcan_dir> <outcsv>
 
 The resulting data takes the form:
 
@@ -21,3 +21,5 @@ The resulting data takes the form:
 | `urbstd`     | Numeric   | Centered and scaled (Z-score) version of the `urban` variable. |
 | `cases`      | Integer   | Observed incidence counts. |
 | `py`         | Numeric   | Total person-years at risk for the given registry, sex, and age group. |
+
+This is the data that serves as the input to the model **run.R**.

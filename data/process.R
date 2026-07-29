@@ -98,7 +98,7 @@ ci5 <- read.csv(args$ci5_file) %>%
   # Remove ethnic specific datasets and keep missing mappings intact
   filter(ethnic_group == 99) %>%
   select(-ethnic_group) %>%
-  # Remove spurious/duplicate registries and Nordic countries (to be replaced by NORDCAN)
+  # Remove spurious/duplicate/overseas registries and Nordic countries (to be replaced by NORDCAN)
   filter(
     !(registry %in% c("Vologda Region", "Japan", "Martinique", "Guadeloupe", "Republic of Korea", "NPCR")),
     !(country %in% nordic_countries)
@@ -240,7 +240,7 @@ total_py <- final_df %>%
   pull(tot)
 
 cat(sprintf("Total Observations (Rows): %s\n", format(nrow(final_df), big.mark=",")))
-cat(sprintf("Total Person-Years (Colorectal base): %s\n", format(total_py, big.mark=",")))
+cat(sprintf("Total Person-Years: %s\n", format(total_py, big.mark=",")))
 cat(sprintf("\nSpatial Hierarchies:\n"))
 cat(sprintf("  - Continents: %d\n", n_continents))
 cat(sprintf("  - Regions:    %d\n", n_regions))
@@ -251,7 +251,7 @@ cat("\n[ CONTINENTS ]\n")
 cat(paste(unique(final_df$continent), collapse = " | "), "\n")
 
 cat("\n[ REGIONS ]\n")
-cat(paste(unique(final_df$region), collapse = ", "), "\n")
+cat(paste(unique(final_df$region), collapse = " | "), "\n")
 
 cat("\n[ REGISTRIES ]\n")
 cat(paste(unique(final_df$registry), collapse = ", "), "\n")

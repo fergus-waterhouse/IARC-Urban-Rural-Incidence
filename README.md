@@ -19,7 +19,7 @@ The script (`run.R`) implements a spatial hierarchical model using Markov chain 
 * **Likelihood:** The observed cancer counts ($y$) are modeled using a Negative Binomial distribution to account for overdispersion relative to a Poisson baseline, utilizing person-years ($n$) as an offset.
 * **Linear Predictor:** The log-rate of incidence is defined as:
   $$ \ln(\text{rate}_i) = \beta_{0,s3} + \beta_{1,s3} \times \text{age}_i + \text{splines}(\text{age}_i) + \gamma_{\text{sex}} \times \text{sex}_i + \delta_{s3} \times \text{covariate}_i $$
-* **Hierarchical Structure:** Random intercepts ($\beta_0$), age slopes ($\beta_1$), spline coefficients, and the covariate effect ($\delta$) are modeled hierarchically across three spatial tiers:
+* **Hierarchical Structure:** Age spline coefficients and the covariate effect ($\delta$) are modeled hierarchically across three spatial tiers:
   * Tier 1: Continent
   * Tier 2: Region
   * Tier 3: Country
@@ -87,7 +87,9 @@ The input dataset (`<inc>`) must be a CSV file containing at least the following
 * `region`: Tier 2 geographic label.
 * `country`: Tier 3 geographic label.
 * `registry`: Registry-level identifier.
-* `[predictor]`: The continuous covariate of interest (e.g., `% urban`).
+* `[predictor]`: The continuous covariate of interest (e.g., `urbstd`).
+
+The **data/process.R** was used in the Urban-Rural study and synthesises data from CI5XII and NORDCAN. See **data/README.md** for more information.
 
 ## Output Files
 
