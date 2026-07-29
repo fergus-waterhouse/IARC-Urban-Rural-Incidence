@@ -12,6 +12,14 @@ This repository contains a Bayesian hierarchical modelling framework designed to
 
 The model relies on incidence data derived from the **Cancer Incidence in 5 Continents (CI5)** and **NORDCAN** datasets. By structuring the spatial hierarchy at the global, continental, regional, and country levels, the model leverages information across geographical tiers to produce robust, smoothed posterior estimates of covariate effects on cancer risk. 
 
+GitHub has specific rules for rendering mathematical equations (via its implementation of MathJax). When the syntax isn't exactly what it expects, standard Markdown takes over, which causes the underscores (`_`) used for subscripts to be interpreted as **italics**. This is why subscripts like `\text{age}_i` were swallowed and turned into `\text{age}i`.
+
+To ensure math renders perfectly on GitHub, you need to follow two main rules:
+1. **Block equations** must have the `$$` delimiters on **their own separate lines** with blank lines above and below them.
+2. **Inline equations** must use `$` with **no spaces** directly inside the dollar signs (e.g., `$y_i$`, not `$ y_i $`).
+
+Here is the corrected `README.md` block with the GitHub-compliant math formatting. Simply copy and paste this:
+
 ## Methodology
 
 The script (`run.R`) implements a spatial hierarchical model using Markov chain Monte Carlo (MCMC) sampling via the `nimble` R package. 
@@ -20,12 +28,19 @@ The script (`run.R`) implements a spatial hierarchical model using Markov chain 
 
 **1. Likelihood**  
 The observed number of cancer cases for a given demographic and spatial strata $i$ ($y_i$) is modeled using a Negative Binomial distribution to account for overdispersion relative to a Poisson baseline. The expected number of cases $\mu_i$ is the product of the person-years at risk ($n_i$) and the incidence rate ($\lambda_i$):
-$$ y_i \sim \text{Negative Binomial}\left(\mu_i, \mu_i + \frac{\mu_i^2}{r}\right) \quad \text{where} \quad \mu_i = n_i \cdot \lambda_i $$
+
+$$
+y_i \sim \text{Negative Binomial}\left(\mu_i, \mu_i + \frac{\mu_i^2}{r}\right) \quad \text{where} \quad \mu_i = n_i \cdot \lambda_i
+$$
+
 *Here, $r$ represents the global overdispersion parameter.*
 
 **2. Linear Predictor & Thin Plate Splines**  
 The log-transformed incidence rate is defined by a country-specific continuous baseline function of age, an invariant sex effect ($\gamma$), and the country-specific covariate effect ($\delta_{s3}$):
-$$ \ln(\lambda_i) = \beta_{0,s3} + \beta_{1,s3} \times \text{age}_i + \sum_{k=1}^K b_{s3,k} \cdot z_{i,k} + \gamma \times \text{sex}_i + \delta_{s3} \times \text{cov}_i $$
+
+$$
+\ln(\lambda_i) = \beta_{0,s3} + \beta_{1,s3} \times \text{age}_i + \sum_{k=1}^K b_{s3,k} \cdot z_{i,k} + \gamma \times \text{sex}_i + \delta_{s3} \times \text{cov}_i
+$$
 
 Non-linear age effects are captured non-parametrically using thin-plate splines (parameterized by $K$ knots). The radial basis function matrix $z_{i,k} = |\text{age}_i - \kappa_k|^3$ calculates the absolute distance between the observed age and the knots $\kappa_k$. The spline weights $b_{s3,k}$ are assigned normally distributed priors centered at zero, allowing the variance parameter to act as a penalty term that balances curve smoothness with data fit.
 
