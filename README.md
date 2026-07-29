@@ -1,6 +1,3 @@
-Here is the updated `README.md` file. I have expanded the **Spatial Hierarchical Structure** section to explicitly detail the nested spatial priors for the $\delta$ parameter, and added an explanation of how the cancer-specific hyperpriors are specified to regularize this effect, ensuring it perfectly aligns with both your thesis and the NIMBLE model code.
-
-***
 
 # Bayesian Hierarchical Spatial Model for Cancer Incidence Rate Ratios
 
