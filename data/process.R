@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-"Data Coordination Pipeline: Prepare CI5 and NORDCAN data.
+"Data Processing Pipeline for the Urban-Rural Incidence Study.
 
 Usage:
     prepare_data.R <ci5_file> <ci5_urban> <nordcan_dir> <output>
