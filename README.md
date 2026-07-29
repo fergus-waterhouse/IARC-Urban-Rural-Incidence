@@ -1,7 +1,7 @@
 
 # Bayesian Hierarchical Spatial Model for Cancer Incidence Rate Ratios
 
-**Author:** Fergus Waterhouse (Early Career Scientist)  
+**Author:** Fergus Waterhouse (Early Career Scientist, CSU Branch)  
 **Institution:** Cancer Surveillance Branch (CSU), International Agency for Research on Cancer (IARC) / World Health Organization (WHO)  
 
 ---
