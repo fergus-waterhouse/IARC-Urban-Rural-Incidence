@@ -55,9 +55,9 @@ Under the assumption that geographic proximity implies similar incidence pattern
 
 ## Prerequisites and Dependencies
 
-The model is written in R and designed to be executed via the command line interface using `docopt`. The following R packages are required:
+The following R packages are required:
 
-* `nimble` (requires a working C++ compiler on your system)
+* `nimble`
 * `docopt`
 * `dplyr`, `tidyverse`, `tibble`
 * `lme4`
@@ -80,10 +80,10 @@ Rscript run.R <inc> <out_dir> <predictor> <cancer> <sex> <num_iter> <num_burn> [
 | `<inc>` | Path to the input incidence dataset (CSV format). |
 | `<out_dir>` | Path to the directory where model outputs will be saved. |
 | `<predictor>` | Column name of the covariate/predictor variable in the dataset (e.g., `urbstd`). |
-| `<cancer>` | Cancer site label to subset the data (e.g., `"Lung"`). |
-| `<sex>` | Integer indicating the sex to model (`0` = Both, `1` = Male, `2` = Female). |
+| `<cancer>` | Cancer site label. |
+| `<sex>` | Integer indicating sex (`0` = Both, `1` = Male, `2` = Female). |
 | `<num_iter>` | Total number of MCMC iterations per chain. |
-| `<num_burn>` | Number of iterations to discard as burn-in per chain. |
+| `<num_burn>` | Number of iterations to discard. |
 
 ### Options
 
@@ -112,10 +112,10 @@ The input dataset (`<inc>`) must be a CSV file containing at least the following
 * `continent`: Tier 1 geographic label.
 * `region`: Tier 2 geographic label.
 * `country`: Tier 3 geographic label.
-* `registry`: Registry-level identifier.
+* `registry`: Registry-ID.
 * `[predictor]`: The continuous covariate of interest (e.g., `urbstd`).
 
-The **`prepare_data.R`** script was used in the Urban-Rural study and synthesizes data from CI5XII and NORDCAN. See **`data/README.md`** for more information on the processing pipeline.
+The **`prepare_data.R`** script was used in the Urban-Rural study and synthesises data from CI5XII and NORDCAN. See **`data/README.md`** for more information on the processing pipeline.
 
 ## Output Files
 
