@@ -1,5 +1,6 @@
 
 # Bayesian Hierarchical Spatial Model for Cancer Incidence Rate Ratios
+## Used in the study: "Urban-Rural Disparities in Cancer Incidence: A Global Ecological Study 2013-2017"
 
 **Author:** Fergus Waterhouse (Early Career Scientist, CSU Branch)  
 **Institution:** Cancer Surveillance Branch (CSU), International Agency for Research on Cancer (IARC) / World Health Organization (WHO)  
