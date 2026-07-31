@@ -115,7 +115,7 @@ The input dataset (`<inc>`) must be a CSV file containing at least the following
 * `registry`: Registry-ID.
 * `[predictor]`: The continuous covariate of interest (e.g., `urbstd`).
 
-The **`prepare_data.R`** script was used in the Urban-Rural study and synthesises data from CI5XII and NORDCAN. See **`data/README.md`** for more information on the processing pipeline.
+The **`data/process.R`** script was used in the Urban-Rural study and synthesises data from CI5XII and NORDCAN. See **`data/README.md`** for more information on the processing pipeline.
 
 ## Output Files
 
